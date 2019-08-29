@@ -46,7 +46,7 @@ class ViewController: NSViewController {
         self.indicator.startAnimation(self)
         DispatchQueue.global().async {
             var imageNames1: [String] = []
-            if fileURL1.isFileURL {
+            if fileURL1.path.hasSuffix(".txt") {
                 if let images = try? String(contentsOf: fileURL1, encoding: .macOSRoman) {
                     imageNames1 = images.components(separatedBy: "\n")
                 }
@@ -60,7 +60,7 @@ class ViewController: NSViewController {
                 })
             }
             var imageNames2: [String] = []
-            if fileURL2.isFileURL {
+            if fileURL2.path.hasSuffix(".txt") {
                 if let images = try? String(contentsOf: fileURL2, encoding: .macOSRoman) {
                     imageNames2 = images.components(separatedBy: "\n")
                 }
